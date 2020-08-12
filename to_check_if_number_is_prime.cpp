@@ -4,12 +4,12 @@ using namespace std;
 typedef long long ll;
 bool check_prime(ll num)
 {
-    if(num==1) return false;
+    if(num==1) return 0;
     for(int i=2;i<=sqrt(num);i++)
     {
-        if(num%i==0) return false;
+        if(num%i==0) return 0;
     }
-    return true;
+    return 1;
 }
 int main()
 {
