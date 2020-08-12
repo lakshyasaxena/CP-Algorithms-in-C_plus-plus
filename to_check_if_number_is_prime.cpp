@@ -13,8 +13,7 @@ bool check_prime(ll num)
 }
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cout<<"  Range 1 to 999999999999999999\n\n";
+    ios_base::sync_with_stdio(false)
     while(1)
     {
         cout<<"Enter your number -> ";
