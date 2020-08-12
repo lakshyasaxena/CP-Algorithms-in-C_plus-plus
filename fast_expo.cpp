@@ -5,7 +5,7 @@ ll power(ll &a,ll b);
 int main()
 {
     ll a=10,b=18;
-    cout<<power(a,b);
+    cout<<power(a,b)<<"\n";
     return 0;
 }
 ll power(ll &a,ll b)
