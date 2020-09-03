@@ -104,7 +104,7 @@ ll get_lca(stack <ll> &path1,stack <ll> &path2)
         path2.pop();
     }
     ll lca_node=-1;
-    while(!s1.empty() || !s2.empty())
+    while(!s1.empty() && !s2.empty())
     {
         if(s1.top()==s2.top())
         {
@@ -170,6 +170,17 @@ int main()
 
     cout<<"\n-----------------------------------------------------------------";
     node1=6; node2=11;
+    cout<<"\n\n  Let Node 1 = "<<node1<<"   and "<<"Node 2 = "<<node2<<"\n\n";
+    cout<<"Path of Node 1 -> { ";
+    trace_path(root,path1,node1);
+    traverse(path1);cout<<" }\n";
+    cout<<"Path of Node 2 -> { ";
+    trace_path(root,path2,node2);
+    traverse(path2);cout<<" }\n\n";
+    cout<<"LCA of ("<<node1<<")"<<" & ("<<node2<<") = "<<get_lca(path1,path2);
+    
+    cout<<"\n-----------------------------------------------------------------";
+    node1=20; node2=30;
     cout<<"\n\n  Let Node 1 = "<<node1<<"   and "<<"Node 2 = "<<node2<<"\n\n";
     cout<<"Path of Node 1 -> { ";
     trace_path(root,path1,node1);
