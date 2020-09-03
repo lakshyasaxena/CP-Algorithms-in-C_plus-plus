@@ -189,6 +189,5 @@ int main()
     trace_path(root,path2,node2);
     traverse(path2);cout<<" }\n\n";
     cout<<"LCA of ("<<node1<<")"<<" & ("<<node2<<") = "<<get_lca(path1,path2);
-    cout<<"\n";
     return 0;
 }
