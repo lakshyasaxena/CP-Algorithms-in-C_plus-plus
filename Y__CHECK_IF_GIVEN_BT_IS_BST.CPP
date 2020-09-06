@@ -37,6 +37,7 @@ typedef long long ll;
 //   Binary Tree 1 is a Binary Search Tree
 //
 //   Binary Tree 2 is not a Binary search Tree
+//
 class Binary_Search_Tree_Node
 {
 public:
@@ -72,21 +73,21 @@ void insert_in_bst(bst *root,bst *temp)
 }
 
 //*********************************************************************************************
-void check_if_binary_search_tree(bst *root,ll &previous,bool &check)
+void check_if_binary_search_tree(bst *root,ll mini,ll maxi,bool &check)
 {
     if(root==NULL || check==false) return;
-    check_if_binary_search_tree(root->left,previous,check);
 
-    if(check==false) return;
-
-    if(root->data < previous)
+    if(mini > root->data || maxi < root->data)
     {
         check=false;
         return;
     }
-    previous=root->data;
 
-    check_if_binary_search_tree(root->right,previous,check);
+    check_if_binary_search_tree(root->left,mini,root->data,check);
+
+    if(check==false) return;
+
+    check_if_binary_search_tree(root->right,root->data,maxi,check);
 
 
 }
@@ -119,8 +120,9 @@ int main()
     cout<<"\n\nIn-Order Tree traversal\n";
     inorder_traversal(root);
     bool check=true;
-    ll previous=INT_MIN;
-    check_if_binary_search_tree(root,previous,check);
+    ll mini=INT_MIN;
+    ll maxi=INT_MAX;
+    check_if_binary_search_tree(root,mini,maxi,check);
     if(check==false)
     {
         cout<<"\n\nThe Tree is not a Binary Search Tree\n";
@@ -139,8 +141,9 @@ int main()
     cout<<"\n\nIn-Order Tree traversal\n";
     inorder_traversal(root2);
     check=true;
-    previous=INT_MIN;
-    check_if_binary_search_tree(root2,previous,check);
+    mini=INT_MIN;
+    maxi=INT_MAX;
+    check_if_binary_search_tree(root2,mini,maxi,check);
     if(check==false)
     {
         cout<<"\n\nThe Tree is not a Binary Search Tree\n";
@@ -149,6 +152,7 @@ int main()
     {
         cout<<"\n\nThe Tree is a Binary Search Tree\n";
     }
+
 
     return 0;
 }
