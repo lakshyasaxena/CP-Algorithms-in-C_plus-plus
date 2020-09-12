@@ -136,6 +136,6 @@ int main()
     cout<<"\n\nHeight of TREE is = "<<height<<" (if you consider height of leaf node as 1)\n";
     cout<<"AND\n";
     cout<<"Height of TREE is = "<<(height-1)<<" (if you consider height of leaf node as 0)\n";
-    cout<<"\nThere are "<<height<<" Levels in tree\n\n";
+    cout<<"\nThere are "<<height<<" Levels in tree\n\n\n";
     return 0;
 }
