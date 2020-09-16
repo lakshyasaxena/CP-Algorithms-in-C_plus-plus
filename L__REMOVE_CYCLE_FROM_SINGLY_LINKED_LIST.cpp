@@ -79,10 +79,6 @@ void delete_cycle_from_list(lis *head,lis *fast)
 }
 bool detect_cycle_in_singly_linked_list(lis *head)
 {
-    if(head==NULL )  // there is no node in list
-    {
-        return false;
-    }
     lis *slow=head;
     lis *fast=head;
     while(slow  &&  fast && fast->next)
