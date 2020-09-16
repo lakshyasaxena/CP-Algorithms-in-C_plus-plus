@@ -59,10 +59,6 @@ void print_cycle(lis *head)
 }
 bool detect_cycle_in_singly_linked_list(lis *head)
 {
-    if(head==NULL )  // there is no node in list or one node with no cycle
-    {
-        return false;
-    }
     lis *slow=head;
     lis *fast=head;
     while(slow  &&  fast && fast->next)
