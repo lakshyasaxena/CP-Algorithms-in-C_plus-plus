@@ -65,16 +65,15 @@ bool detect_cycle_in_singly_linked_list(lis *head)
     }
     lis *slow=head;
     lis *fast=head->next;
-    while(slow!=NULL  &&  fast!=NULL)
+    while(slow  &&  fast && fast->next)
     {
+        slow=slow->next;
+        fast=fast->next->next;
         if(slow==fast)
         {
             print_cycle(slow);
             return true;
         }
-        slow=slow->next;
-        if(fast->next==NULL) return false;
-        else fast=fast->next->next;
     }
     return false;
 }
@@ -89,7 +88,6 @@ int main()
     fill_list2(head2);
     fill_list3(head3);
     fill_list4(head4);
-
 
     cout<<"Processing List 1\n";
     bool f=detect_cycle_in_singly_linked_list(head1);
