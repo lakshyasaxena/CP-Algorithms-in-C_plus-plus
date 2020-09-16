@@ -64,7 +64,7 @@ bool detect_cycle_in_singly_linked_list(lis *head)
         return false;
     }
     lis *slow=head;
-    lis *fast=head->next;
+    lis *fast=head;
     while(slow  &&  fast && fast->next)
     {
         slow=slow->next;
