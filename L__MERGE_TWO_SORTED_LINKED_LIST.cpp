@@ -33,7 +33,7 @@ void fill_list2(lis *&);
 //*******************************************************************************************************************************
 void insert_at_last_in_merged_list(lis *&head,lis *&tail,lis *node)
 {
-    if(head==NULL) // first node to be inserted
+    if(!head) // first node to be inserted
     {
         head=tail=node;
     }
@@ -49,14 +49,24 @@ lis* merge_two_sorted_singly_linked_list(lis *head1,lis *head2)
     lis *tail=NULL;
     while(head1 || head2)
     {
-        if(head1==NULL)
+        if(!head1)   // it means if (head==NULL)
         {
+            if(!head) // List 1 is empty
+            {
+                head=head2;
+                return head;
+            }
             tail->next=head2;
             head1=head2=NULL;   // we are making them NULL because now they are of no use now
             return head;
         }
-        if(head2==NULL)
+        if(!head2)
         {
+            if(!head) // List 2 is empty
+            {
+                head=head1;
+                return head;
+            }
             tail->next=head1;   // we are making them NULL because now they are of no use now
             return head;
         }
@@ -71,6 +81,7 @@ lis* merge_two_sorted_singly_linked_list(lis *head1,lis *head2)
             head2=head2->next;
         }
     }
+    return head;
 }
 //*******************************************************************************************************************************
 int main()
