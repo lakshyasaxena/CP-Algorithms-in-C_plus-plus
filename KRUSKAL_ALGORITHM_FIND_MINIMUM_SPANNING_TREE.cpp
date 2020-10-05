@@ -42,7 +42,7 @@ typedef Edge_Of_Graph eog;
 
 bool sort_in_my_way(eog &a,eog &b)
 {
-    return(a.weight>b.weight);
+    return(a.weight<b.weight);
 }
 
 ll find_parent(ll edge,vector <ll> &parent_array)
